@@ -1,0 +1,160 @@
+{
+  "quantitative": [
+    {
+      "category": "quantitative",
+      "topic": "percentage",
+      "difficulty": "easy",
+      "question": "If a shirt costs $40 and is on sale for 25% off, what is the sale price?",
+      "options": ["$30", "$32", "$35", "$36"],
+      "correctAnswer": 0,
+      "explanation": "25% of $40 is $10. $40 - $10 = $30",
+      "timeLimit": 60
+    },
+    {
+      "category": "quantitative",
+      "topic": "percentage",
+      "difficulty": "medium",
+      "question": "A student scores 80% in Math and 70% in Science. If the maximum marks for each subject is 100, what is the overall percentage?",
+      "options": ["75%", "76%", "77%", "78%"],
+      "correctAnswer": 0,
+      "explanation": "Total marks = 80 + 70 = 150. Maximum = 200. Percentage = (150/200) × 100 = 75%",
+      "timeLimit": 90
+    },
+    {
+      "category": "quantitative",
+      "topic": "ratio",
+      "difficulty": "easy",
+      "question": "The ratio of boys to girls in a class is 3:2. If there are 30 students, how many are girls?",
+      "options": ["10", "12", "15", "18"],
+      "correctAnswer": 1,
+      "explanation": "3:2 ratio means 5 parts. Girls = (2/5) × 30 = 12",
+      "timeLimit": 60
+    },
+    {
+      "category": "quantitative",
+      "topic": "profit-loss",
+      "difficulty": "medium",
+      "question": "A car is sold for $18,000 at a 20% profit. What was the cost price?",
+      "options": ["$14,400", "$15,000", "$15,600", "$16,000"],
+      "correctAnswer": 1,
+      "explanation": "SP = CP × 1.2. CP = 18000 / 1.2 = $15,000",
+      "timeLimit": 90
+    },
+    {
+      "category": "quantitative",
+      "topic": "time-work",
+      "difficulty": "hard",
+      "question": "A can complete a work in 10 days and B can complete it in 15 days. Working together, how long will they take?",
+      "options": ["4 days", "5 days", "6 days", "7 days"],
+      "correctAnswer": 2,
+      "explanation": "A's rate = 1/10, B's rate = 1/15. Combined rate = 1/10 + 1/15 = 1/6. Time = 6 days",
+      "timeLimit": 120
+    }
+  ],
+  "logical": [
+    {
+      "category": "logical",
+      "topic": "series",
+      "difficulty": "easy",
+      "question": "What comes next: 3, 6, 9, 12, 15, ?",
+      "options": ["16", "17", "18", "19"],
+      "correctAnswer": 2,
+      "explanation": "The pattern is +3 each time. 15 + 3 = 18",
+      "timeLimit": 45
+    },
+    {
+      "category": "logical",
+      "topic": "analogy",
+      "difficulty": "medium",
+      "question": "Book is to Reading as Fork is to?",
+      "options": ["Kitchen", "Eating", "Spoon", "Food"],
+      "correctAnswer": 1,
+      "explanation": "Book is used for reading, Fork is used for eating",
+      "timeLimit": 60
+    },
+    {
+      "category": "logical",
+      "topic": "coding-decoding",
+      "difficulty": "medium",
+      "question": "If COMPUTER is coded as RFUVQNPC, how is MEDICINE coded?",
+      "options": ["MFEJDJOF", "MFEJDJOE", "MFEJDJNF", "MFEJDJNE"],
+      "correctAnswer": 1,
+      "explanation": "Each letter is shifted by +1, -1 alternately",
+      "timeLimit": 90
+    },
+    {
+      "category": "logical",
+      "topic": "syllogism",
+      "difficulty": "hard",
+      "question": "All cats are animals. Some animals are pets. Conclusion: Some cats are pets.",
+      "options": ["True", "False", "Uncertain", "None"],
+      "correctAnswer": 2,
+      "explanation": "We cannot definitively say some cats are pets based on the given statements",
+      "timeLimit": 120
+    }
+  ],
+  "verbal": [
+    {
+      "category": "verbal",
+      "topic": "synonyms",
+      "difficulty": "easy",
+      "question": "Synonym for 'HAPPY'?",
+      "options": ["Sad", "Joyful", "Angry", "Tired"],
+      "correctAnswer": 1,
+      "explanation": "Joyful means the same as happy",
+      "timeLimit": 30
+    },
+    {
+      "category": "verbal",
+      "topic": "antonyms",
+      "difficulty": "easy",
+      "question": "Antonym for 'HOT'?",
+      "options": ["Warm", "Cold", "Cool", "Mild"],
+      "correctAnswer": 1,
+      "explanation": "Cold is the opposite of hot",
+      "timeLimit": 30
+    },
+    {
+      "category": "verbal",
+      "topic": "comprehension",
+      "difficulty": "medium",
+      "question": "The quick brown fox jumps over the lazy dog. What does the fox jump over?",
+      "options": ["The dog", "The lazy dog", "The brown dog", "The quick dog"],
+      "correctAnswer": 1,
+      "explanation": "The fox jumps over the lazy dog",
+      "timeLimit": 60
+    },
+    {
+      "category": "verbal",
+      "topic": "idioms",
+      "difficulty": "medium",
+      "question": "What does 'break a leg' mean?",
+      "options": ["Get injured", "Good luck", "Run fast", "Sit down"],
+      "correctAnswer": 1,
+      "explanation": "Break a leg is an idiom meaning good luck",
+      "timeLimit": 45
+    }
+  ],
+  "data-interpretation": [
+    {
+      "category": "data-interpretation",
+      "topic": "charts",
+      "difficulty": "medium",
+      "question": "If a pie chart shows 25% for category A, what angle does it represent?",
+      "options": ["45°", "90°", "180°", "270°"],
+      "correctAnswer": 1,
+      "explanation": "25% of 360° = 90°",
+      "timeLimit": 60
+    },
+    {
+      "category": "data-interpretation",
+      "topic": "tables",
+      "difficulty": "hard",
+      "question": "A table shows sales: Jan=100, Feb=150, Mar=200. What is the average monthly sales?",
+      "options": ["133", "150", "167", "175"],
+      "correctAnswer": 1,
+      "explanation": "Average = (100 + 150 + 200) / 3 = 150",
+      "timeLimit": 90
+    }
+  ]
+}

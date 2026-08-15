@@ -1,0 +1,9 @@
+# Terminal 1 - Backend
+cd backend
+npm run dev
+
+
+
+# Terminal 3 - Frontend
+cd frontend
+npm run dev

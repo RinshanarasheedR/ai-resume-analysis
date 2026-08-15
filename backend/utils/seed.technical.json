@@ -1,0 +1,304 @@
+{
+  "programming": [
+    {
+      "topic": "programming",
+      "subtopic": "arrays",
+      "difficulty": "easy",
+      "question": "What is the index of the first element in an array?",
+      "options": ["0", "1", "-1", "Any number"],
+      "correctAnswer": 0,
+      "explanation": "Arrays are zero-indexed in most programming languages",
+      "timeLimit": 30
+    },
+    {
+      "topic": "programming",
+      "subtopic": "sorting",
+      "difficulty": "medium",
+      "question": "Which sorting algorithm has the best average-case time complexity?",
+      "options": ["Bubble Sort", "Insertion Sort", "Quick Sort", "Selection Sort"],
+      "correctAnswer": 2,
+      "explanation": "Quick Sort has O(n log n) average-case time complexity",
+      "timeLimit": 60
+    },
+    {
+      "topic": "programming",
+      "subtopic": "recursion",
+      "difficulty": "medium",
+      "question": "What is the base case in recursion?",
+      "options": ["The recursive call", "The stopping condition", "The input", "The output"],
+      "correctAnswer": 1,
+      "explanation": "The base case is the condition that stops the recursion",
+      "timeLimit": 45
+    },
+    {
+      "topic": "programming",
+      "subtopic": "dynamic-programming",
+      "difficulty": "hard",
+      "question": "Which technique is used to solve problems by breaking them into overlapping subproblems?",
+      "options": ["Greedy", "Divide and Conquer", "Dynamic Programming", "Backtracking"],
+      "correctAnswer": 2,
+      "explanation": "Dynamic Programming solves problems with overlapping subproblems",
+      "timeLimit": 120
+    }
+  ],
+  "sql": [
+    {
+      "topic": "sql",
+      "subtopic": "basics",
+      "difficulty": "easy",
+      "question": "Which SQL statement is used to retrieve data from a database?",
+      "options": ["GET", "OPEN", "SELECT", "EXTRACT"],
+      "correctAnswer": 2,
+      "explanation": "SELECT statement is used to retrieve data from a database",
+      "timeLimit": 30
+    },
+    {
+      "topic": "sql",
+      "subtopic": "joins",
+      "difficulty": "medium",
+      "question": "Which JOIN returns only matching records from both tables?",
+      "options": ["LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "FULL JOIN"],
+      "correctAnswer": 2,
+      "explanation": "INNER JOIN returns only matching records from both tables",
+      "timeLimit": 60
+    },
+    {
+      "topic": "sql",
+      "subtopic": "aggregation",
+      "difficulty": "medium",
+      "question": "Which SQL function counts the number of rows?",
+      "options": ["SUM()", "COUNT()", "AVG()", "MAX()"],
+      "correctAnswer": 1,
+      "explanation": "COUNT() function returns the number of rows",
+      "timeLimit": 45
+    }
+  ],
+  "dbms": [
+    {
+      "topic": "dbms",
+      "subtopic": "acid",
+      "difficulty": "medium",
+      "question": "What does ACID stand for in database transactions?",
+      "options": ["Atomicity, Consistency, Isolation, Durability", "Atomicity, Consistency, Integrity, Durability", "Atomicity, Consistency, Isolation, Dependency", "All of the above"],
+      "correctAnswer": 0,
+      "explanation": "ACID stands for Atomicity, Consistency, Isolation, Durability",
+      "timeLimit": 60
+    },
+    {
+      "topic": "dbms",
+      "subtopic": "indexing",
+      "difficulty": "hard",
+      "question": "Which data structure is commonly used for database indexes?",
+      "options": ["Array", "Linked List", "B-Tree", "Queue"],
+      "correctAnswer": 2,
+      "explanation": "B-Tree is commonly used for database indexes due to efficient search",
+      "timeLimit": 90
+    }
+  ],
+  "os": [
+    {
+      "topic": "os",
+      "subtopic": "basics",
+      "difficulty": "easy",
+      "question": "What is the main function of an operating system?",
+      "options": ["Run applications", "Manage hardware resources", "Connect to internet", "Create files"],
+      "correctAnswer": 1,
+      "explanation": "OS manages hardware resources and provides services for applications",
+      "timeLimit": 45
+    },
+    {
+      "topic": "os",
+      "subtopic": "process",
+      "difficulty": "medium",
+      "question": "What is a process in operating system?",
+      "options": ["A program in execution", "A stored program", "A system file", "A user command"],
+      "correctAnswer": 0,
+      "explanation": "A process is a program in execution",
+      "timeLimit": 60
+    },
+    {
+      "topic": "os",
+      "subtopic": "deadlock",
+      "difficulty": "hard",
+      "question": "Which condition is NOT required for a deadlock to occur?",
+      "options": ["Mutual Exclusion", "Hold and Wait", "No Preemption", "Resource Allocation"],
+      "correctAnswer": 3,
+      "explanation": "The four necessary conditions are: Mutual Exclusion, Hold and Wait, No Preemption, Circular Wait",
+      "timeLimit": 120
+    }
+  ],
+  "cn": [
+    {
+      "topic": "cn",
+      "subtopic": "osi",
+      "difficulty": "easy",
+      "question": "How many layers are in the OSI model?",
+      "options": ["5", "6", "7", "8"],
+      "correctAnswer": 2,
+      "explanation": "OSI model has 7 layers",
+      "timeLimit": 30
+    },
+    {
+      "topic": "cn",
+      "subtopic": "protocols",
+      "difficulty": "medium",
+      "question": "Which protocol is used for email transmission?",
+      "options": ["HTTP", "FTP", "SMTP", "TCP"],
+      "correctAnswer": 2,
+      "explanation": "SMTP (Simple Mail Transfer Protocol) is used for email",
+      "timeLimit": 45
+    },
+    {
+      "topic": "cn",
+      "subtopic": "ip",
+      "difficulty": "medium",
+      "question": "What is the default subnet mask for a Class C IP address?",
+      "options": ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"],
+      "correctAnswer": 2,
+      "explanation": "Class C default subnet mask is 255.255.255.0",
+      "timeLimit": 60
+    }
+  ],
+  "oop": [
+    {
+      "topic": "oop",
+      "subtopic": "concepts",
+      "difficulty": "easy",
+      "question": "Which OOP concept bundles data and methods together?",
+      "options": ["Inheritance", "Polymorphism", "Encapsulation", "Abstraction"],
+      "correctAnswer": 2,
+      "explanation": "Encapsulation bundles data and methods together",
+      "timeLimit": 45
+    },
+    {
+      "topic": "oop",
+      "subtopic": "polymorphism",
+      "difficulty": "medium",
+      "question": "Which type of polymorphism is achieved at compile time?",
+      "options": ["Runtime polymorphism", "Compile-time polymorphism", "Dynamic polymorphism", "Static binding"],
+      "correctAnswer": 1,
+      "explanation": "Compile-time polymorphism (method overloading) is resolved at compile time",
+      "timeLimit": 60
+    }
+  ],
+  "java": [
+    {
+      "topic": "java",
+      "subtopic": "basics",
+      "difficulty": "easy",
+      "question": "Which keyword is used to create a class in Java?",
+      "options": ["class", "Class", "CLASS", "object"],
+      "correctAnswer": 0,
+      "explanation": "'class' keyword is used to create a class in Java",
+      "timeLimit": 30
+    },
+    {
+      "topic": "java",
+      "subtopic": "collections",
+      "difficulty": "medium",
+      "question": "Which interface does not allow duplicate elements?",
+      "options": ["List", "Set", "Map", "Collection"],
+      "correctAnswer": 1,
+      "explanation": "Set interface does not allow duplicate elements",
+      "timeLimit": 60
+    }
+  ],
+  "python": [
+    {
+      "topic": "python",
+      "subtopic": "basics",
+      "difficulty": "easy",
+      "question": "What is the correct file extension for Python files?",
+      "options": [".python", ".py", ".pt", ".pyt"],
+      "correctAnswer": 1,
+      "explanation": "Python files use .py extension",
+      "timeLimit": 30
+    },
+    {
+      "topic": "python",
+      "subtopic": "data-structures",
+      "difficulty": "medium",
+      "question": "Which data type is immutable in Python?",
+      "options": ["List", "Dictionary", "Tuple", "Set"],
+      "correctAnswer": 2,
+      "explanation": "Tuples are immutable in Python",
+      "timeLimit": 45
+    }
+  ],
+  "javascript": [
+    {
+      "topic": "javascript",
+      "subtopic": "basics",
+      "difficulty": "easy",
+      "question": "How do you declare a variable in JavaScript?",
+      "options": ["variable myVar", "var myVar", "v myVar", "declare myVar"],
+      "correctAnswer": 1,
+      "explanation": "'var' keyword is used to declare variables in JavaScript",
+      "timeLimit": 30
+    },
+    {
+      "topic": "javascript",
+      "subtopic": "es6",
+      "difficulty": "medium",
+      "question": "Which ES6 feature allows extracting values from arrays?",
+      "options": ["Spread", "Destructuring", "Mapping", "Filtering"],
+      "correctAnswer": 1,
+      "explanation": "Destructuring allows extracting values from arrays or objects",
+      "timeLimit": 60
+    }
+  ],
+  "mern": [
+    {
+      "topic": "mern",
+      "subtopic": "react",
+      "difficulty": "easy",
+      "question": "What is JSX in React?",
+      "options": ["JavaScript XML", "Java Syntax XML", "JSON XML", "JavaScript Extension"],
+      "correctAnswer": 0,
+      "explanation": "JSX stands for JavaScript XML",
+      "timeLimit": 45
+    },
+    {
+      "topic": "mern",
+      "subtopic": "express",
+      "difficulty": "medium",
+      "question": "What is Express.js used for?",
+      "options": ["Database", "Backend framework", "Frontend library", "Testing"],
+      "correctAnswer": 1,
+      "explanation": "Express.js is a backend web framework for Node.js",
+      "timeLimit": 60
+    },
+    {
+      "topic": "mern",
+      "subtopic": "mongodb",
+      "difficulty": "medium",
+      "question": "What type of database is MongoDB?",
+      "options": ["SQL", "NoSQL", "Graph", "Time-series"],
+      "correctAnswer": 1,
+      "explanation": "MongoDB is a NoSQL document database",
+      "timeLimit": 45
+    }
+  ],
+  "ai-ml": [
+    {
+      "topic": "ai-ml",
+      "subtopic": "basics",
+      "difficulty": "easy",
+      "question": "What is Machine Learning?",
+      "options": ["Programming robots", "AI that learns from data", "Creating databases", "Web development"],
+      "correctAnswer": 1,
+      "explanation": "Machine Learning is AI that learns from data",
+      "timeLimit": 45
+    },
+    {
+      "topic": "ai-ml",
+      "subtopic": "types",
+      "difficulty": "medium",
+      "question": "Which type of learning uses labeled data?",
+      "options": ["Unsupervised", "Supervised", "Reinforcement", "Semi-supervised"],
+      "correctAnswer": 1,
+      "explanation": "Supervised learning uses labeled data for training",
+      "timeLimit": 60
+    }
+  ]
+}
