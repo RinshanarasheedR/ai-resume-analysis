@@ -88,7 +88,7 @@ const Layout = () => {
               <Brain className="w-5 h-5 text-white" />
             </div>
             <h1 className="text-lg font-bold text-gray-900 dark:text-white">
-              InterviewAI
+              Rinu's Interview AI
             </h1>
           </div>
           <button
@@ -185,7 +185,7 @@ const Layout = () => {
               <div className="w-7 h-7 bg-primary-600 rounded-lg flex items-center justify-center">
                 <Brain className="w-4 h-4 text-white" />
               </div>
-              <h1 className="text-base font-bold text-gray-900 dark:text-white">InterviewAI</h1>
+              <h1 className="text-base font-bold text-gray-900 dark:text-white">Rinu's Interview AI</h1>
             </div>
 
             {/* Desktop welcome */}

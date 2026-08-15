@@ -15,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "AI Interview Space - Practise Mock Interviews & ATS Scoring";
+    document.title = "Rinu's Interview AI - Smart AI Interview Space";
     if (isAuthenticated) {
       navigate('/dashboard', { replace: true });
     }
@@ -52,11 +52,11 @@ const Login = () => {
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-4">
-            Welcome to the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-indigo-600 dark:from-primary-400 dark:to-indigo-400">AI Interview Space</span>
+            Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-indigo-600 dark:from-primary-400 dark:to-indigo-400">Rinu's Interview AI Space</span>
           </h2>
           
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
-            Elevate your career preparation with an interactive mock interview space. Build resumes, track ATS compatibility, and train using real-time AI feedback loops.
+            Elevate your career preparation with Rinu's Interview AI. Build resumes, track ATS compatibility, and train using real-time AI feedback loops in the ultimate mock interview space.
           </p>
 
           {/* Crawlable Features Matrix */}
@@ -118,7 +118,7 @@ const Login = () => {
                 Sign In
               </h1>
               <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm">
-                Enter your details to access the AI Interview Space
+                Enter your details to access Rinu's Interview AI Space
               </p>
             </div>
 

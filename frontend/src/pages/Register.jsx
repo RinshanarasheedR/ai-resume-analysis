@@ -18,7 +18,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Join the AI Interview Space - Get Started Free";
+    document.title = "Join Rinu's Interview AI - Create Free Account";
     if (isAuthenticated) {
       navigate('/dashboard', { replace: true });
     }
@@ -83,10 +83,10 @@ const Register = () => {
               <Brain className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Join the AI Interview Space
+              Join Rinu's Interview AI Space
             </h1>
             <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm">
-              Create an account and start mastering your mock interview skills
+              Create an account and start mastering your skills in Rinu's Interview AI Space
             </p>
           </div>
 
