@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /login
+Allow: /register
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /ats-checker/
+Disallow: /resume-builder/
+Disallow: /aptitude/
+Disallow: /technical/
+Disallow: /mock-interview/
+Disallow: /learning-resources/
+Disallow: /admin/
+Disallow: /profile/
+
+Sitemap: https://ai-resume-analysis.vercel.app/sitemap.xml

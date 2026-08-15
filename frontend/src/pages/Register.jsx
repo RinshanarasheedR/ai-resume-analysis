@@ -82,10 +82,10 @@ const Register = () => {
               <Brain className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Create your account
+              Join the AI Interview Space
             </h1>
             <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm">
-              Join InterviewAI and ace your next interview
+              Create an account and start mastering your mock interview skills
             </p>
           </div>
 
