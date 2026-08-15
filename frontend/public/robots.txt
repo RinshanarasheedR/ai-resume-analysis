@@ -13,4 +13,4 @@ Disallow: /learning-resources/
 Disallow: /admin/
 Disallow: /profile/
 
-Sitemap: https://ai-resume-analysis.vercel.app/sitemap.xml
+Sitemap: https://ai-resume-analysis-at6v.vercel.app/sitemap.xml
