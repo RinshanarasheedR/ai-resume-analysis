@@ -44,6 +44,7 @@ export const AuthProvider = ({ children }) => {
       setUser(newUser);
       return { success: true };
     } catch (error) {
+      console.error('Login Error Details:', error);
       return {
         success: false,
         message: error.response?.data?.message || 'Login failed. Please check your credentials.'
@@ -60,6 +61,7 @@ export const AuthProvider = ({ children }) => {
       setUser(newUser);
       return { success: true };
     } catch (error) {
+      console.error('Registration Error Details:', error);
       return {
         success: false,
         message: error.response?.data?.message || 'Registration failed. Please try again.'
