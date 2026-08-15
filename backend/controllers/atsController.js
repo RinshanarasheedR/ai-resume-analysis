@@ -8,11 +8,9 @@ const callOpenRouterAI = async (resumeContent, jobDescription, jobTitle = '', co
   const apiKey = process.env.OPENROUTER_API_KEY || "";
   const url = "https://openrouter.ai/api/v1/chat/completions";
   const models = [
-    "openrouter/auto",
-    "google/gemini-2.5-flash",
-    "meta-llama/llama-3.3-70b-instruct",
-    "qwen/qwen3-coder",
-    "meta-llama/llama-3.2-3b-instruct"
+    "openai/gpt-4o-mini",
+    "openai/gpt-3.5-turbo",
+    "openai/gpt-4o"
   ];
 
   const prompt = `
