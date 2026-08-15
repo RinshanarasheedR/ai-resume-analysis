@@ -4,7 +4,12 @@ from dotenv import load_dotenv
 import os
 
 # Load environment variables
-load_dotenv()
+# Check root folder first
+root_env_path = os.path.join(os.path.dirname(__file__), "..", ".env")
+if os.path.exists(root_env_path):
+    load_dotenv(root_env_path)
+else:
+    load_dotenv()
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -57,4 +62,5 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.getenv("PYTHON_PORT", os.getenv("PORT", 8000)))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
