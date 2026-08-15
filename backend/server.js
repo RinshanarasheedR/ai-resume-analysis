@@ -44,13 +44,25 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/uploads', express.static('uploads'));
 
 // Database connection
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/interview-portal';
-mongoose.connect(mongoUri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB Connected'))
-.catch(err => console.error('MongoDB Connection Error:', err));
+const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/interview-portal';
+const connectDB = async () => {
+  try {
+    await mongoose.connect(mongoUri);
+    console.log('MongoDB Connected successfully to:', mongoUri.includes('@') ? mongoUri.split('@').pop().split('?')[0] : mongoUri);
+  } catch (err) {
+    console.error('Primary MongoDB Connection Error:', err.message);
+    if (process.env.NODE_ENV !== 'production' && mongoUri !== 'mongodb://127.0.0.1:27017/interview-portal') {
+      console.log('Attempting connection to local MongoDB fallback...');
+      try {
+        await mongoose.connect('mongodb://127.0.0.1:27017/interview-portal');
+        console.log('MongoDB Connected successfully to local fallback');
+      } catch (localErr) {
+        console.error('Local MongoDB Connection Error:', localErr.message);
+      }
+    }
+  }
+};
+connectDB();
 
 // Set fallback for environment variables
 if (!process.env.JWT_SECRET) {
