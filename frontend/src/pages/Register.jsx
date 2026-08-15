@@ -18,6 +18,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "Join the AI Interview Space - Get Started Free";
     if (isAuthenticated) {
       navigate('/dashboard', { replace: true });
     }
