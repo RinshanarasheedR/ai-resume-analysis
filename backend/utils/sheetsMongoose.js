@@ -712,11 +712,16 @@ async function connect() {
 }
 
 let connectPromise = null;
+let isConnected = false;
+
 async function ensureConnected() {
-  if (sheetsEnabled && Object.keys(cache).length > 0 && cache['Users']) return;
+  if (isConnected) return;
   if (!connectPromise) {
-    connectPromise = connect().catch(err => {
+    connectPromise = connect().then(() => {
+      isConnected = true;
+    }).catch(err => {
       console.warn('Lazy connect warning:', err.message);
+      isConnected = true; // Mark as done even on error to prevent retry loops
     });
   }
   await connectPromise;

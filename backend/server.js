@@ -1,6 +1,5 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
-require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('./utils/sheetsMongoose');
@@ -27,7 +26,12 @@ const app = express();
 
 // Security middleware
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'https://ai-resume-analysis-ivory.vercel.app',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(morgan('dev'));
 
 // Rate limiting

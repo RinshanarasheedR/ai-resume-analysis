@@ -89,7 +89,7 @@ const callOpenRouterAI = async (resumeContent, jobDescription, jobTitle = '', co
           headers: {
             "Authorization": `Bearer ${apiKey}`,
             "Content-Type": "application/json",
-            "HTTP-Referer": "http://localhost:3000",
+            "HTTP-Referer": process.env.FRONTEND_URL || "https://ai-resume-analysis-ivory.vercel.app",
             "X-Title": "AI Interview Portal"
           },
           timeout: 25000

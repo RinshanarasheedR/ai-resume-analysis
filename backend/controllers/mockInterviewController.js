@@ -33,7 +33,7 @@ exports.startInterview = async (req, res, next) => {
           resumeContent,
           isFirstQuestion: true
         },
-        { timeout: 3000 }
+        { timeout: 15000 }
       );
       if (response.data && response.data.message) {
         initialMessage = response.data.message;
@@ -106,7 +106,7 @@ exports.chat = async (req, res, next) => {
           chatHistory: interview.chatHistory,
           isFirstQuestion: false
         },
-        { timeout: 3000 }
+        { timeout: 15000 }
       );
       if (response.data && response.data.message) {
         aiMessage = response.data.message;
@@ -178,7 +178,7 @@ exports.evaluate = async (req, res, next) => {
           chatHistory: interview.chatHistory,
           interviewType: interview.interviewType
         },
-        { timeout: 3000 }
+        { timeout: 15000 }
       );
       if (response.data && response.data.evaluation) {
         evaluation = response.data.evaluation;

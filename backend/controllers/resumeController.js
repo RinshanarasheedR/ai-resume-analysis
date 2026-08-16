@@ -136,20 +136,30 @@ exports.generateAIContent = async (req, res, next) => {
     const { education, skills, projects, certifications, careerObjective } = req.body;
 
     // Call Python service for AI generation
-    const response = await axios.post(
-      `${process.env.PYTHON_SERVICE_URL}/api/ai/generate-resume`,
-      {
-        education,
-        skills,
-        projects,
-        certifications,
-        careerObjective
-      }
-    );
+    let response;
+    try {
+      response = await axios.post(
+        `${process.env.PYTHON_SERVICE_URL}/api/ai/generate-resume`,
+        {
+          education,
+          skills,
+          projects,
+          certifications,
+          careerObjective
+        },
+        { timeout: 30000 }
+      );
+    } catch (pythonError) {
+      console.warn('Python service unavailable for AI resume generation:', pythonError.message);
+      return res.status(503).json({
+        success: false,
+        message: 'AI resume generation service is currently unavailable. Please try again later or fill in the resume manually.'
+      });
+    }
 
     const generatedContent = response.data.content;
 
-    // Auto-save the generated resume to MongoDB
+    // Auto-save the generated resume
     const resume = await Resume.create({
       userId: req.user.id,
       title: `AI Generated Resume - ${new Date().toLocaleDateString()}`,
@@ -166,3 +176,4 @@ exports.generateAIContent = async (req, res, next) => {
     next(error);
   }
 };
+

@@ -17,7 +17,7 @@ exports.getQuestions = async (req, res, next) => {
         category: category || 'general',
         difficulty: difficulty || 'medium',
         limit: parseInt(limit) || 10
-      }, { timeout: 3000 });
+      }, { timeout: 15000 });
       
       if (response.data.success && response.data.questions) {
         return res.status(200).json({

@@ -81,10 +81,10 @@ exports.getProgress = async (req, res, next) => {
       const dateStr = date.toISOString().split('T')[0];
 
       const dayScores = scores.filter(s => 
-        s.completedAt.toISOString().split('T')[0] === dateStr
+        new Date(s.completedAt).toISOString().split('T')[0] === dateStr
       );
       const dayInterviews = interviews.filter(int => 
-        int.createdAt.toISOString().split('T')[0] === dateStr
+        new Date(int.createdAt).toISOString().split('T')[0] === dateStr
       );
 
       progressData.push({
