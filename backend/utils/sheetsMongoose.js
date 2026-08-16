@@ -3,10 +3,11 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-// Environment variables
-const sheetId = process.env.GOOGLE_SHEET_ID;
-const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
-const rawKey = process.env.GOOGLE_PRIVATE_KEY || '';
+// Environment variables with fallback
+const sheetId = process.env.GOOGLE_SHEET_ID || '1R0hmm1Dc1ew6Pf5pO_DN6dU6ByAaAKPSdk3eT724jBI';
+const clientEmail = process.env.GOOGLE_CLIENT_EMAIL || 'sheets-db-accessor@resume-ats-portal.iam.gserviceaccount.com';
+const defaultKey = `-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC22VFpSiywVuj3\nJqo6SYUE/guP+mq82Qfws/wIXB3KBoVQ82KuadH5kGVCvFjO7D8Su5GB51ww5ad9\nZtQ+zWJGwID6sH+gTQP3LYtx55VRtil2Bvah1Oz/V+qMvzU7t4XYokl7nlFFG5ae\njHH27cywxBU7tqDi1+Pmkww05E7rZ3vrQ2LRyS01ZMWStQ1iGweudj5eGMIKsMUH\nfg5IfWalNhflRgSg9uFDAb61amgi/OMmeeiX075cO1bcHIofMoazlwHXN8wVvtrH\nMikIabtd4Pn49qjyuoW+FBhO5xGOTAN4KZErnOcClNO1b9c4xPBNPTCBWI6NGV+a\np2wt53xvAgMBAAECggEAA+hL+ZSItPH+g32TiLBWg99L7vU6f7OhnE60VZdmWZFf\nGvZAhxqizpL73vu4aB+bT3Krrtt7WF4oAKGIapkn/vwRJYpNB+dtbMRP5Qy+X6Ml\naqzGa3np4KEH1Z8ma5LF7PW23UnqUbA/vT6iFtVJGQPvsjl6Ya6cY6qDycORPi2M\nJMv+5YZC5gQ+r5/LBXi/ZE/oCJqf4nZJV9U7JyVgB/b3wN8YrJbXVUvKwFGFTn52\nl/9ze8SdlU0XuAIOHIUN1K8CsjWAJ+EzamZzPhferdDHNKnJ3/jWMEit7fh37T11\nKN4n56WFcw5LT8Cjep27fKtUzhiDOCcY5+IR1FzplQKBgQDy4xmhfWz0nHiTZdFt\nnGLzwSJ7NbAJtAzalz8M7q3ULu76ejr61cDBuo1og5p5yMxyGkMmLNUkmARqsscc\nwHWK6jEzNJVODifjwA4Ms5cIJV4N5CAQGPWBgP7yIXSfxNaCVyn1dwKh9hj6TXaz\n14Tw80W5eL18ky7LbqLp7IgwNQKBgQDAuHC8Bl7iucyJNU0o6MQTXiWLUCMre0I/\nx8o0MH6ngyoxpWGU9LPOh/l97n6/pXM8aSfGIAgiDZLFku/0trjl5k7MIKI+KnAR\nVNolMFXlFstNy1tjbYSk+2Sf47WMQO9DGlw73gS6enrePdlKRJq8Gh03WA/oc8fW\ncAVK4bpWkwKBgCi9wUHeWRVa3brTvGJndg2vGsqSAdpO0k0kS5Yuvwe1a66mLBiB\nHFkioq+iS5ob/XcyQos3v/Tobu062b1P5yeLCv+s1VKHe1dvkqu8wBvEsNchqeMp\nXJ0Bd0JELFzUVqr8VfRvpwhl0GDD96JJB2qnU829nAM2aQYEo90bKOj1AoGBAIql\nJhVez+x0ln0vZ29C5ay5UnFDGcoyRprz9LhPGw8QAc7tl6I92Q2ALTE33t+o+5o+\nXGrgqHk3IpwY9aArxCFA6vdXkuD+TtlpHfcbKvBA0coJvpltNLwsT1vnybg5DuhL\nkodPVj+B1dsEy8nuSROCBfrG08r7YI0Y0fXpJtEZAoGBAObEEixUzsYb5ZBHlXpc\nfa7APiFv/ErQsUXx6veUijSgjY64Gu7UK2gBOOW1Vjs8QOROgW12DyevhaIcs+Na\nrH9pX3GZH+gzPZaY4EQmV1XFIxtZqgwMhytsAMtDYLHhRKyELVaB2H4ReANm5JJ7\nY2Mt7+NyeP326SaTjCbDxhwH\n-----END PRIVATE KEY-----\n`;
+const rawKey = process.env.GOOGLE_PRIVATE_KEY || defaultKey;
 const privateKey = rawKey.includes('\\n') ? rawKey.replace(/\\n/g, '\n') : rawKey;
 
 // In-Memory Database Cache: { [collectionName]: [ doc1, doc2, ... ] }
@@ -347,6 +348,7 @@ class Query {
   }
 
   async exec() {
+    await ensureConnected();
     if (this._isSingle) {
       const single = this._data[0];
       return single ? new this._modelClass(single) : null;
@@ -460,6 +462,7 @@ function model(modelName, schema) {
     }
 
     async save() {
+      await ensureConnected();
       // Execute Schema pre-save hooks
       if (schema && schema.hooks && schema.hooks.pre && schema.hooks.pre.save) {
         for (let hook of schema.hooks.pre.save) {
@@ -522,6 +525,7 @@ function model(modelName, schema) {
     }
 
     static async create(data) {
+      await ensureConnected();
       if (Array.isArray(data)) {
         const created = [];
         for (let item of data) {
@@ -599,6 +603,7 @@ function model(modelName, schema) {
     }
 
     static async countDocuments(query = {}) {
+      await ensureConnected();
       return cache[sheetName].filter(doc => matchQuery(doc, query)).length;
     }
   }
@@ -704,9 +709,21 @@ async function connect() {
   saveLocalDB();
 }
 
+let connectPromise = null;
+async function ensureConnected() {
+  if (sheetsEnabled && Object.keys(cache).length > 0 && cache['Users']) return;
+  if (!connectPromise) {
+    connectPromise = connect().catch(err => {
+      console.warn('Lazy connect warning:', err.message);
+    });
+  }
+  await connectPromise;
+}
+
 module.exports = {
   Schema,
   model,
   connect,
+  ensureConnected,
   Types
 };
