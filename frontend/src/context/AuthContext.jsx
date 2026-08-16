@@ -62,9 +62,10 @@ export const AuthProvider = ({ children }) => {
       return { success: true };
     } catch (error) {
       console.error('Registration Error Details:', error);
+      const validationMsg = error.response?.data?.errors?.[0]?.msg;
       return {
         success: false,
-        message: error.response?.data?.message || 'Registration failed. Please try again.'
+        message: validationMsg || error.response?.data?.message || (error.message ? `Network Error: ${error.message}` : 'Registration failed. Please try again.')
       };
     }
   };
