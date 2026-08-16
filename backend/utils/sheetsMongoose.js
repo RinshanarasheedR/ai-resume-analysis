@@ -13,8 +13,10 @@ const privateKey = rawKey.includes('\\n') ? rawKey.replace(/\\n/g, '\n') : rawKe
 // In-Memory Database Cache: { [collectionName]: [ doc1, doc2, ... ] }
 const cache = {};
 
-// Local fallback file path
-const LOCAL_DB_DIR = path.resolve(__dirname, '../data');
+// Local fallback file path (use /tmp on Vercel serverless where filesystem is read-only)
+const LOCAL_DB_DIR = process.env.VERCEL
+  ? path.join('/tmp', 'sheets-db')
+  : path.resolve(__dirname, '../data');
 const LOCAL_DB_FILE = path.join(LOCAL_DB_DIR, 'db.json');
 
 // Helper to generate 24-character hexadecimal MongoDB-like ObjectID
