@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../utils/sheetsMongoose');
 
 const mockInterviewSchema = new mongoose.Schema({
   userId: {

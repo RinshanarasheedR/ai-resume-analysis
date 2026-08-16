@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../utils/sheetsMongoose');
 
 const resumeSchema = new mongoose.Schema({
   userId: {

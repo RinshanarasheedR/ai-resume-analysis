@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../utils/sheetsMongoose');
 
 const learningResourceSchema = new mongoose.Schema({
   title: {

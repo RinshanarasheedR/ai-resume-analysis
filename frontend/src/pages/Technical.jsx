@@ -15,7 +15,7 @@ const Technical = () => {
   const [loading, setLoading] = useState(false);
 
   const topics = [
-    { value: 'C', label: 'Programming', link: 'https://www.indiabix.com/c-programming/questions-and-answers/' },
+    { value: 'C', label: 'C', link: 'https://www.indiabix.com/c-programming/questions-and-answers/' },
     { value: 'sql', label: 'SQL', link: 'https://www.indiabix.com/database/sql-server/' },
     { value: 'dbms', label: 'DBMS', link: 'https://www.indiabix.com/database/questions-and-answers/' },
     { value: 'os', label: 'Operating Systems', link: 'https://www.indiabix.com/computer-science/operating-systems-concepts/' },
@@ -158,11 +158,10 @@ const Technical = () => {
             {result.score.answers.map((answer, index) => (
               <div
                 key={index}
-                className={`p-4 rounded-lg border-l-4 ${
-                  answer.isCorrect
+                className={`p-4 rounded-lg border-l-4 ${answer.isCorrect
                     ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
                     : 'border-red-500 bg-red-50 dark:bg-red-900/20'
-                }`}
+                  }`}
               >
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-gray-900 dark:text-white">
@@ -242,13 +241,12 @@ const Technical = () => {
             {questions.map((_, index) => (
               <div
                 key={index}
-                className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  index === currentQuestion
+                className={`w-8 h-8 rounded-full flex items-center justify-center ${index === currentQuestion
                     ? 'bg-primary-600 text-white'
                     : index < currentQuestion
-                    ? 'bg-green-500 text-white'
-                    : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
-                }`}
+                      ? 'bg-green-500 text-white'
+                      : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
+                  }`}
               >
                 {index + 1}
               </div>
@@ -301,11 +299,10 @@ const Technical = () => {
                     setTopic(t.value);
                     window.open(t.link, '_blank');
                   }}
-                  className={`p-4 rounded-lg border-2 transition-colors ${
-                    topic === t.value
+                  className={`p-4 rounded-lg border-2 transition-colors ${topic === t.value
                       ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20'
                       : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
-                  }`}
+                    }`}
                 >
                   <Code className="w-6 h-6 mx-auto mb-2 text-primary-600" />
                   <p className="text-sm font-medium text-gray-900 dark:text-white">

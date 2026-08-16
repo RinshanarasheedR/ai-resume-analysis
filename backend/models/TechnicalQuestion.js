@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../utils/sheetsMongoose');
 
 const technicalQuestionSchema = new mongoose.Schema({
   topic: {

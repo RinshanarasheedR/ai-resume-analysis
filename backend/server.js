@@ -1,12 +1,14 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+require('dotenv').config();
+
 const express = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('./utils/sheetsMongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
-require('dotenv').config();
+
 
 // Import routes
 const authRoutes = require('./routes/auth');
@@ -44,22 +46,12 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/uploads', express.static('uploads'));
 
 // Database connection
-const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/interview-portal';
 const connectDB = async () => {
   try {
-    await mongoose.connect(mongoUri);
-    console.log('MongoDB Connected successfully to:', mongoUri.includes('@') ? mongoUri.split('@').pop().split('?')[0] : mongoUri);
+    await mongoose.connect();
+    console.log('Google Sheets Database Connected successfully.');
   } catch (err) {
-    console.error('Primary MongoDB Connection Error:', err.message);
-    if (process.env.NODE_ENV !== 'production' && mongoUri !== 'mongodb://127.0.0.1:27017/interview-portal') {
-      console.log('Attempting connection to local MongoDB fallback...');
-      try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/interview-portal');
-        console.log('MongoDB Connected successfully to local fallback');
-      } catch (localErr) {
-        console.error('Local MongoDB Connection Error:', localErr.message);
-      }
-    }
+    console.error('Google Sheets Database Connection Error:', err.message);
   }
 };
 connectDB();
@@ -120,7 +112,7 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`MongoDB URI: ${mongoUri}`);
+  console.log(`Database: Google Sheets (ID: ${process.env.GOOGLE_SHEET_ID})`);
 });
 
 module.exports = app;

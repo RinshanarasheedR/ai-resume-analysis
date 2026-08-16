@@ -18,6 +18,14 @@
             }
         },
         {
+            "source": "/((?!api|assets|favicon.ico|robots.txt|sitemap.xml).*)",
+            "destination": {
+                "type": "service",
+                "service": "frontend",
+                "path": "/index.html"
+            }
+        },
+        {
             "source": "/(.*)",
             "destination": {
                 "type": "service",
