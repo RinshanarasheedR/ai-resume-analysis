@@ -76,20 +76,27 @@ if (!process.env.PYTHON_SERVICE_URL) {
   process.env.PYTHON_SERVICE_URL = 'http://localhost:8000';
 }
 
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/user', userRoutes);
-app.use('/api/dashboard', dashboardRoutes);
-app.use('/api/resume', resumeRoutes);
-app.use('/api/ats', atsRoutes);
-app.use('/api/aptitude', aptitudeRoutes);
-app.use('/api/technical', technicalRoutes);
-app.use('/api/mock-interview', mockInterviewRoutes);
-app.use('/api/resources', resourceRoutes);
-app.use('/api/admin', adminRoutes);
+// Routes - mounted on both /api/* and /* to guarantee matching across all Vercel deployment configurations
+const routes = [
+  ['auth', authRoutes],
+  ['user', userRoutes],
+  ['dashboard', dashboardRoutes],
+  ['resume', resumeRoutes],
+  ['ats', atsRoutes],
+  ['aptitude', aptitudeRoutes],
+  ['technical', technicalRoutes],
+  ['mock-interview', mockInterviewRoutes],
+  ['resources', resourceRoutes],
+  ['admin', adminRoutes]
+];
+
+routes.forEach(([routePath, router]) => {
+  app.use(`/api/${routePath}`, router);
+  app.use(`/${routePath}`, router);
+});
 
 // Health check
-app.get('/health', (req, res) => {
+app.get(['/health', '/api/health'], (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
 });
 
