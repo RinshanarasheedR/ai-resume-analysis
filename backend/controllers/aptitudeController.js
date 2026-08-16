@@ -17,7 +17,7 @@ exports.getQuestions = async (req, res, next) => {
         category: category || 'general',
         difficulty: difficulty || 'medium',
         limit: parseInt(limit) || 10
-      });
+      }, { timeout: 3000 });
       
       if (response.data.success && response.data.questions) {
         return res.status(200).json({
@@ -27,11 +27,19 @@ exports.getQuestions = async (req, res, next) => {
         });
       }
     } catch (pythonError) {
-      console.error('Python service error:', pythonError.message);
-      // Fallback or error
-      return res.status(500).json({
-        success: false,
-        message: 'Failed to generate AI questions. Please ensure the Python service is running.'
+      console.warn('Python service unavailable, serving questions from database:', pythonError.message);
+      const filter = { isActive: true };
+      if (category) filter.category = category;
+      if (difficulty) filter.difficulty = difficulty;
+
+      const questions = await AptitudeQuestion.find(filter)
+        .limit(parseInt(limit) || 10)
+        .select('-correctAnswer -explanation');
+
+      return res.status(200).json({
+        success: true,
+        count: questions.length,
+        questions
       });
     }
 
