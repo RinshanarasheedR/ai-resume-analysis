@@ -4,11 +4,8 @@ const getBaseUrl = () => {
   if (import.meta.env.VITE_API_URL) {
     return import.meta.env.VITE_API_URL;
   }
-  if (typeof window !== 'undefined' && window.location) {
-    if (import.meta.env.DEV || window.location.hostname === 'localhost' || window.location.hostname.match(/^\d+\.\d+\.\d+\.\d+$/)) {
-      return `http://${window.location.hostname}:5000`;
-    }
-  }
+  // In all production/deployed environments and Vite proxy dev server, use relative path ''
+  // This guarantees requests go to the current host / domain without hardcoded IP or port issues
   return '';
 };
 
